@@ -2,9 +2,11 @@
 exports.main_handler = async (event, context, callback) => {
     let params = {}
     let scripts = []
+    let single_flag = false
     if (event["Message"] != 'config') {
-        console.log('单脚本触发方式,Msg:', event["Message"])
+        console.log('单脚本触发方式(不读取配置文件),Msg:', event["Message"])
         scripts.push(event["Message"])
+        single_flag = true
     } else {
         const now_hour = (new Date().getUTCHours() + 8) % 24
         console.log('hourly config触发:', now_hour)
@@ -61,21 +63,22 @@ exports.main_handler = async (event, context, callback) => {
         console.log(`run script:${script}, please waitting for log`)
         const name = './' + script + '.js'
         const param_run = {}
-        const param = params[script]
-        for (const param_name of param_names) {
-            if (param) {
-                if (param[param_name]) {
-                    console.debug(`${script} has specific ${param_name}:${param[param_name]}`)
-                    param_run[param_name] = min * param[param_name]
+        if (!single_flag){
+            const param = params[script]
+            for (const param_name of param_names) {
+                if (param) {
+                    if (param[param_name]) {
+                        console.debug(`${script} has specific ${param_name}:${param[param_name]}`)
+                        param_run[param_name] = min * param[param_name]
+                    }
+                } else if (params['global'] && params['global'][param_name]) {
+                    console.debug(`${script} use global ${param_name}`)
+                    param_run[param_name] = min * params['global'][param_name]
+                } else {
+                    console.warn(`No global ${param_name}!`)
                 }
-            } else if (params['global'] && params['global'][param_name]) {
-                console.debug(`${script} use global ${param_name}`)
-                param_run[param_name] = min * params['global'][param_name]
-            } else {
-                console.warn(`No global ${param_name}!`)
             }
         }
-
         try {
             const result = await execFileSync(process.execPath, [name], param_run)
             console.log(result.toString())
