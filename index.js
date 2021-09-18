@@ -2,7 +2,7 @@
 exports.main_handler = async (event, context, callback) => {
     let params = {}
     let scripts = []
-    cosnt single_flag = event["Message"] != 'config'
+    const single_flag = event["Message"] != 'config'
     if (single_flag) {
         console.log('单脚本触发方式(不读取配置文件),Msg:', event["Message"])
         scripts.push(event["Message"])
