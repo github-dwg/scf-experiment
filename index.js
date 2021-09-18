@@ -2,7 +2,7 @@
 exports.main_handler = async (event, context, callback) => {
     let params = {}
     let scripts = []
-    if (event["Message"] != config) {
+    if (event["Message"] != 'config') {
         console.log('单脚本触发方式,Msg:', event["Message"])
         scripts.push(event["Message"])
     } else {
