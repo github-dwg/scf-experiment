@@ -40,7 +40,7 @@ exports.main_handler = async (event, context, callback) => {
             } else {
                 // console.debug(`dict param:${cron}`)
                 if (cron.includes(now_hour)) {
-                    console.debug(`${script}:dict cron triggered!`)
+                    console.debug(`${script}:array cron triggered!`)
                     scripts.push(script)
                 }
             }
