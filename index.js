@@ -68,7 +68,7 @@ exports.main_handler = async (event, context, callback) => {
                     console.debug(`${script} has specific ${param_name}:${param[param_name]}`)
                     param_run[param_name] = min * param[param_name]
                 }
-            } else if (params['global'][param_name]) {
+            } else if (params['global'] && params['global'][param_name]) {
                 console.debug(`${script} use global ${param_name}`)
                 param_run[param_name] = min * params['global'][param_name]
             } else {
