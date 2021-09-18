@@ -2,11 +2,10 @@
 exports.main_handler = async (event, context, callback) => {
     let params = {}
     let scripts = []
-    let single_flag = false
-    if (event["Message"] != 'config') {
+    let single_flag = event["Message"] != 'config'
+    if (single_flag) {
         console.log('单脚本触发方式(不读取配置文件),Msg:', event["Message"])
         scripts.push(event["Message"])
-        single_flag = true
     } else {
         const now_hour = (new Date().getUTCHours() + 8) % 24
         console.log('hourly config触发:', now_hour)
