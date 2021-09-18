@@ -27,6 +27,7 @@ exports.main_handler = async (event, context, callback) => {
         }
         // console.debug(JSON.stringify(config))
         params = config['params']
+        delete config['params']
         for (let script in config) {
             // console.debug(`script:${script}`)
             const cron = config[script]
