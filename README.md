@@ -5,7 +5,8 @@
 - [x] 单独触发功能(现在只支持一个脚本)
 - [x] 配置文件每小时触发
 - [x] 单独脚本超时timeout参数
-- [ ] config_diy.json配置文件(自动merge进config.json,覆盖已经存在的参数)
+- [x] config_diy.json配置文件(自动merge进config.json,覆盖已经存在的参数)
+- [x] 原始require异步触发(params:global:exec参数='async')
 - [ ] 单独触发器(某些特殊脚本)
 ## 实验性特性仅限高级用户!欢迎PR或入群私聊探讨!
 ## 使用方式:
