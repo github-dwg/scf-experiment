@@ -71,13 +71,12 @@ exports.main_handler = async (event, context, callback) => {
             return !flag
         })
     }
-    let execFileSync
-    const min = 1000 * 60
-    const param_names = ['timeout']
     const is_async = (params['global'] && params['global']['exec'] == 'async')
     console.log('当前是', is_async ? '异' : '同', '步执行')
     if (is_async) {
-        console.log('异步执行不支持params参数!')['log', 'warn', 'error', 'debug', 'info'].forEach((methodName) => {
+        console.log('异步执行不支持params参数!')
+
+        ['log', 'warn', 'error', 'debug', 'info'].forEach((methodName) => {
             const originalMethod = console[methodName]
             console[methodName] = (...args) => {
                 try {
@@ -99,16 +98,18 @@ exports.main_handler = async (event, context, callback) => {
                 }
             }
         })
-    } else {
-        execFileSync = require('child_process').execFileSync
-    }
-    for (const script of scripts) {
-        console.log(`run script:${script}`)
-        const name = './' + script + '.js'
-        if (is_async) {
+        for (const script of scripts) {
+            console.log(`run script:${script}`)
+            const name = './' + script + '.js'
             require(name)
-        } else {
-            console.log('please waitting for log')
+        }
+    } else {
+        const { execFileSync } = require('child_process')
+        const min = 1000 * 60
+        const param_names = ['timeout']
+        for (const script of scripts) {
+            console.log(`run script:${script},please waitting for log`)
+            const name = './' + script + '.js'
             const param_run = {}
             if (!single_flag) {
                 const param = params[script]
