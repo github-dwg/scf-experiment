@@ -15,7 +15,6 @@
     "jd_dpqd": [0],
     "jd_dreamFactory": [6, 8, 10, 12, 14, 16, 18, 20, 22],
     "jd_dwapp": [7, 19],
-    "jd_fan": [0],
     "jd_fansa": [0],
     "jd_fcdyj": [6, 9, 12, 15, 18, 21],
     "jd_gold_creator": [0, 22],
@@ -73,6 +72,7 @@
     "jd_try": [8],
     "jd_unsubscribe": [23],
     "jd_cfd_loop": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    "jd_fan": [0],
     "params":
     {
         "global":
