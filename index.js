@@ -44,7 +44,7 @@ exports.main_handler = async (event, context, callback) => {
             }
             config = { ...config, ...config_diy }
         } catch (err) {
-            console.error(`${config_diy_file} 不存在`)
+            console.error(`${config_diy_file} 不存在或解析异常`)
         }
         console.log("params:", params)
         for (let script in config) {
