@@ -33,5 +33,11 @@ inputs:
           cronExpression: "0 0 * * * * *"
           enable: true
           argument: config
+    - timer: #宠汪汪积分兑换京豆 #全民开红包
+        parameters:
+          name: joyreward
+          cronExpression: "0 59 7,15,23 * * * *"
+          enable: true
+          argument: jd_joy_reward
   environment: #  环境变量
     variables: #  环境变量对象
