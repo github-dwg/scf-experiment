@@ -75,6 +75,10 @@ exports.main_handler = async (event, context, callback) => {
             return !flag
         })
     }
+    if (!scripts.length){
+        console.log('No Script to Execute, Exit!')
+        return
+    }
     const is_async = (params['global'] && params['global']['exec'] == 'async')
     console.log('当前是', is_async ? '异' : '同', '步执行')
     if (is_async) {
