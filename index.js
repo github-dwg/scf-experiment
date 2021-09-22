@@ -4,8 +4,12 @@ exports.main_handler = async (event, context, callback) => {
     let scripts = []
     const single_flag = event["Message"] != 'config'
     if (single_flag) {
-        console.log('单脚本触发方式(不读取配置文件),触发参数:', event["Message"])
-        scripts.push(event["Message"])
+        if (!event["Message"]) {
+            console.error('ERROR, NO ARGUMENTS FOUND!!!')
+            return 
+        }
+        console.log('参数触发方式(不读取配置文件),触发参数:', event["Message"])
+        scripts = event["Message"].split("&")
     } else {
         const now_hour = (new Date().getUTCHours() + 8) % 24
         console.log('hourly config触发:', now_hour)
