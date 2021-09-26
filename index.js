@@ -83,7 +83,7 @@ exports.main_handler = async (event, context, callback) => {
     console.log('当前是', is_async ? '异' : '同', '步执行')
     if (is_async) {
         console.log('异步执行不支持params参数!');
-        ['log', 'warn', 'error', 'debug'].forEach((methodName) => {
+        ['log', 'warn', 'error', 'debug', 'info'].forEach((methodName) => {
             const originalMethod = console[methodName]
             console[methodName] = (...args) => {
                 try {
