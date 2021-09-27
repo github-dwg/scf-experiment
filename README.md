@@ -9,6 +9,8 @@
 - [x] 原始require异步触发(params:global:exec参数='async')
 - [ ] 单独触发器(某些特殊脚本)
 
+## EXAMPLES:
+examples文件夹内有部分diy例子,感兴趣可以看看.
 ## 注意事项:
 jd_cfd_loop已经移除,需要请自己添加至config_diy.json,参考cron:
 
