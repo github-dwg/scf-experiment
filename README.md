@@ -8,6 +8,12 @@
 - [x] config_diy.json配置文件(自动merge进config.json,覆盖已经存在的参数)
 - [x] 原始require异步触发(params:global:exec参数='async')
 - [ ] 单独触发器(某些特殊脚本)
+
+## 注意事项:
+jd_cfd_loop已经移除,需要请自己添加至config_diy.json,参考cron:
+
+"jd_cfd_loop": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+
 ## 实验性特性仅限高级用户!欢迎PR或入群私聊探讨!
 ## 使用方式:
 配置文件部署增加Secrets:EXPERIMENT,值为任意,存在则使用最新的实验性特性.
