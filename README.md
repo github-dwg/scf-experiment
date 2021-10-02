@@ -7,8 +7,8 @@
 - [x] 单独脚本超时timeout参数
 - [x] config_diy.json配置文件(自动merge进config.json,覆盖已经存在的参数)
 - [x] 原始require异步触发(params:global:exec参数='async')
-- [ ] 单独触发器(某些特殊脚本)
-
+- [x] 单独触发器(某些特殊脚本)
+## 即将merge到配置文件部署
 ## EXAMPLES:
 examples文件夹内有部分diy例子,感兴趣可以看看.
 ## 注意事项:
