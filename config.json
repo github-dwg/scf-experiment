@@ -57,6 +57,7 @@
     "jd_wsdlb": 6,
     "jd_z_health_energy": [6, 8, 10, 12, 14, 16, 18, 20, 22],
     "jd_zjb": [7],
+    "jd_car": [7],
     "jx_sign": [8, 13],
     "jd_ddworld": [9, 19],
     "jd_fruit":[6, 12 ,18],
