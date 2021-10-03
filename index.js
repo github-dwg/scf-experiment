@@ -79,38 +79,9 @@ exports.main_handler = async (event, context, callback) => {
         console.log('No Script to Execute, Exit!')
         return
     }
-    const is_async = (params['global'] && params['global']['exec'] == 'async')
-    console.log('当前是', is_async ? '异' : '同', '步执行')
-    if (is_async) {
-        console.log('异步执行不支持params参数!');
-        ['log', 'warn', 'error', 'debug', 'info'].forEach((methodName) => {
-            const originalMethod = console[methodName]
-            console[methodName] = (...args) => {
-                try {
-                    throw new Error()
-                } catch (error) {
-                    let stack = error
-                        .stack // Grabs the stack trace
-                        .split('\n')[2] // Grabs third line
-                        .split("/").slice(-1)[0] // Grabs  file name and line number
-                        .replace('.js', '')
-                    stack = `${stack.substring(0, stack.lastIndexOf(':'))}:`
-                    originalMethod.apply(
-                        console,
-                        [
-                            stack,
-                            ...args
-                        ]
-                    )
-                }
-            }
-        })
-        for (const script of scripts) {
-            console.log(`run script:${script}`)
-            const name = './' + script + '.js'
-            require(name)
-        }
-    } else {
+    const is_sync = (params['global'] && params['global']['exec'] == 'sync')
+    console.log('当前是', is_sync ? '同' : '异', '步执行')
+    if (is_sync) {
         const { execFileSync } = require('child_process')
         const min = 1000 * 60
         const param_names = ['timeout']
@@ -142,6 +113,35 @@ exports.main_handler = async (event, context, callback) => {
                 console.error(`${script} ERROR:${e}`)
                 console.error(`stdout:${e.stdout}`)
             }
+        }
+    } else {
+        console.log('异步执行不支持params参数!');
+        ['log', 'warn', 'error', 'debug', 'info'].forEach((methodName) => {
+            const originalMethod = console[methodName]
+            console[methodName] = (...args) => {
+                try {
+                    throw new Error()
+                } catch (error) {
+                    let stack = error
+                        .stack // Grabs the stack trace
+                        .split('\n')[2] // Grabs third line
+                        .split("/").slice(-1)[0] // Grabs  file name and line number
+                        .replace('.js', '')
+                    stack = `${stack.substring(0, stack.lastIndexOf(':'))}:`
+                    originalMethod.apply(
+                        console,
+                        [
+                            stack,
+                            ...args
+                        ]
+                    )
+                }
+            }
+        })
+        for (const script of scripts) {
+            console.log(`run script:${script}`)
+            const name = './' + script + '.js'
+            require(name)
         }
     }
 }
