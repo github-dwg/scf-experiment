@@ -1,12 +1,12 @@
 # 配置文件部署方式实验性特性
 - [x] config.json配置文件(数组列表为单独某小时运行,数字为当前小时整除则运行)
-- [x] 顺序(同步)执行
+- [x] 顺序(同步)执行(params:global:exec参数='sync'来开启)
 - [x] 每个脚本单独config(目前只有timeout)
 - [x] 传统Event Msg参数触发
 - [x] 配置文件每小时触发
 - [x] 单独脚本超时timeout参数
 - [x] config_diy.json配置文件(自动merge进config.json,覆盖已经存在的参数)
-- [x] 原始require异步触发(params:global:exec参数='async')
+- [x] execFile异步触发(默认异步触发)
 - [x] 单独触发器(某些特殊脚本)
 ## 即将merge到配置文件部署
 ## EXAMPLES:
