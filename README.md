@@ -4,7 +4,7 @@
 - [x] 每个脚本单独config(目前只有timeout)
 - [x] 传统Event Msg参数触发
 - [x] 配置文件每小时触发
-- [x] 单独脚本超时timeout参数
+- [x] 单独脚本超时timeout参数(同步异步现在此参数都生效!)
 - [x] config_diy.json配置文件(自动merge进config.json,覆盖已经存在的参数)
 - [x] execFile异步触发(默认异步触发)
 - [x] 单独触发器(某些特殊脚本)
