@@ -85,7 +85,6 @@ exports.main_handler = async (event, context, callback) => {
     const min = 1000 * 60
     const param_names = ['timeout']
     for (const script of scripts) {
-        console.log(`run script:${script},please waitting for log`)
         const name = './' + script + '.js'
         const param_run = {}
         if (!single_flag) {
@@ -106,6 +105,7 @@ exports.main_handler = async (event, context, callback) => {
         }
         if (is_sync) {
             try {
+                console.log(`run script:${script},please waitting for log`)
                 const result = await exec(process.execPath, [name], param_run)
                 console.log(result.toString())
                 console.log(`${script} finished`)
