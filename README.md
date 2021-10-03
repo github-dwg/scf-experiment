@@ -7,7 +7,7 @@
 - [x] 配置文件每小时触发
 - [x] 单独脚本超时timeout参数(同步异步现在此参数都生效!)
 - [x] config_diy.json配置文件(自动merge进config.json,覆盖已经存在的参数)
-- [x] execFile异步触发(默认异步触发)
+- [x] execFile异步触发(默认异步触发,请更改内存为128M或更大!)
 - [x] 单独触发器(某些特殊脚本)
 ## 即将merge到配置文件部署
 ## EXAMPLES:
