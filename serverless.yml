@@ -26,10 +26,10 @@ inputs:
   events: #触发器
     - timer:
         parameters:
-          name: config6666
+          name: config
           cronExpression: "0 0 * * * * *"
           enable: true
-          argument: config&config_diy_jddj
+          argument: config
     - timer: #宠汪汪积分兑换京豆
         parameters:
           name: joyreward
