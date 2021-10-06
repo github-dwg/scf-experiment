@@ -29,7 +29,7 @@ inputs:
           name: config6666
           cronExpression: "0 0 * * * * *"
           enable: true
-          argument: config
+          argument: config&config_diy_jddj
     - timer: #宠汪汪积分兑换京豆
         parameters:
           name: joyreward
