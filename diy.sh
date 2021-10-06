@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone --single-branch --branch master https://github.com/Ca11back/scf-experiment.git
-mv scf-experiment/config.json JD_tencent_scf/
-mv scf-experiment/index.js JD_tencent_scf/
-mv scf-experiment/serverless.yml JD_tencent_scf/
+git clone --single-branch --branch master https://github.com/github-dwg/scf-experiment.git
+mv scf-experiment/config.json jd_dwg/
+mv scf-experiment/index.js jd_dwg/
+mv scf-experiment/serverless.yml jd_dwg/
