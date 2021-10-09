@@ -26,7 +26,7 @@ inputs:
   events: #触发器
     - timer:
         parameters:
-          name: config666
+          name: config6666
           cronExpression: "0 0 * * * * *"
           enable: true
           argument: config
